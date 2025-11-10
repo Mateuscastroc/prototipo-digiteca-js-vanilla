@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiteca — Devolução</title>
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app">
+    <a href="../login/index.html" id="nav-login">Login</a>
+    <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+    <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+    <a href="../admin/index.html" id="nav-admin">Admin</a>
+  </header>
+  <div class="container">
+    
+<section class="card">
+  <div class="card__header">Devolução</div>
+  <div class="card__content">
+    <div><label>Livro</label><input id="dev-livro" readonly></div>
+    <div class="row">
+      <button class="btn primary" id="dev-confirmar">Confirmar devolução</button>
+      <a class="btn ghost" href="../perfil/index.html">Cancelar</a>
+    </div>
+    <div id="dev-msg" class="alert hidden"></div>
+  </div>
+</section>
+
+  </div>
+  <script src="../shared/common.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    setActive('nav-devolucao');
+  </script>
+</body>
+</html>

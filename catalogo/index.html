@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiteca — Catálogo</title>
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app">
+    <a href="../login/index.html" id="nav-login">Login</a>
+    <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+    <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+    <a href="../admin/index.html" id="nav-admin">Admin</a>
+  </header>
+  <div class="container">
+    
+<section class="card">
+  <div class="card__header">Catálogo</div>
+  <div class="card__content">
+    <div class="row">
+      <input id="busca" placeholder="Buscar por título/autor" />
+      <select id="filtro-status">
+        <option value="todos">Todos</option>
+        <option value="disponivel">Disponível</option>
+        <option value="emprestado">Emprestado</option>
+        <option value="reservado">Reservado</option>
+      </select>
+      <select id="filtro-cat"><option>Todos</option><option>Tecnologia</option><option>Literatura</option><option>História</option></select>
+      <button class="btn" id="btn-filtrar">Filtrar</button>
+    </div>
+    <table class="table" aria-label="Lista de livros">
+      <thead><tr><th>Título</th><th>Autor</th><th>Status</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+  </div>
+  <script src="../shared/common.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    setActive('nav-catalogo');
+  </script>
+</body>
+</html>

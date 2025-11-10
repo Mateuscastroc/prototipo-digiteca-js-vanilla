@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiteca — Notificações</title>
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app">
+    <a href="../login/index.html" id="nav-login">Login</a>
+    <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+    <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+    <a href="../admin/index.html" id="nav-admin">Admin</a>
+  </header>
+  <div class="container">
+    
+<section class="card">
+  <div class="card__header">Notificações</div>
+  <div class="card__content">
+    <div class="row">
+      <div><label>Antecedência (dias)</label><input id="n-dias" type="number" min="1" value="3"></div>
+      <div>
+        <label>Canal preferido</label>
+        <select id="n-canal"><option>Email</option><option>App</option><option>SMS</option></select>
+      </div>
+    </div>
+    <div class="alert ok">Prévia: "Seu livro &lt;Título&gt; vence em X dias"</div>
+  </div>
+  <div class="card__footer">
+    <button class="btn primary" id="n-salvar">Salvar</button>
+    <a class="btn ghost" href="../perfil/index.html">Voltar</a>
+  </div>
+</section>
+
+  </div>
+  <script src="../shared/common.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    setActive('nav-notif');
+  </script>
+</body>
+</html>

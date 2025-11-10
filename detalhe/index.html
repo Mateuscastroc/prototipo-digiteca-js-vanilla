@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiteca — Detalhe do Livro</title>
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app">
+    <a href="../login/index.html" id="nav-login">Login</a>
+    <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+    <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+    <a href="../admin/index.html" id="nav-admin">Admin</a>
+  </header>
+  <div class="container">
+    
+<section class="card">
+  <div class="card__header" id="hdr">Detalhe do Livro</div>
+  <div class="card__content">
+    <div class="row">
+      <div><label>Código</label><input id="det-cod" readonly></div>
+      <div><label>Categoria</label><input id="det-cat" readonly></div>
+      <div><label>Autor</label><input id="det-autor" readonly></div>
+      <div><label>Ano</label><input id="det-ano" readonly></div>
+    </div>
+    <div class="row">
+      <button class="btn primary" id="btn-emprestar">Emprestar</button>
+      <button class="btn" id="btn-reservar">Reservar</button>
+      <button class="btn ghost" onclick="history.back()">Voltar</button>
+    </div>
+    <div id="msg" class="alert hidden"></div>
+  </div>
+</section>
+
+  </div>
+  <script src="../shared/common.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    setActive('nav-detalhe');
+  </script>
+</body>
+</html>

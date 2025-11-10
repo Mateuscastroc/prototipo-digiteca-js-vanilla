@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiteca — Perfil</title>
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app">
+    <a href="../login/index.html" id="nav-login">Login</a>
+    <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+    <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+    <a href="../admin/index.html" id="nav-admin">Admin</a>
+  </header>
+  <div class="container">
+    
+<section class="card">
+  <div class="card__header">Meu Perfil</div>
+  <div class="card__content">
+    <div class="row">
+      <div><label>Nome</label><input id="p-nome" readonly></div>
+      <div><label>E-mail</label><input id="p-email" readonly></div>
+      <div>
+        <label>Notificações</label>
+        <select id="p-notif"><option>Email</option><option>App</option><option>SMS</option></select>
+      </div>
+      <div><button class="btn" id="p-salvar">Salvar preferências</button></div>
+    </div>
+    <h3>Empréstimos Ativos</h3>
+    <table class="table"><thead><tr><th>Título</th><th>Prev. devolução</th><th>Ações</th></tr></thead><tbody id="tb-ativos"></tbody></table>
+    <h3>Histórico</h3>
+    <table class="table"><thead><tr><th>Título</th><th>Empréstimo</th><th>Devolução</th><th>Status</th></tr></thead><tbody id="tb-hist"></tbody></table>
+  </div>
+</section>
+
+  </div>
+  <script src="../shared/common.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    setActive('nav-perfil');
+  </script>
+</body>
+</html>

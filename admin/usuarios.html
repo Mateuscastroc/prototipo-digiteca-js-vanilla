@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Digiteca — Admin Usuários</title>
+<link rel="stylesheet" href="../shared/common.css"/><link rel="stylesheet" href="./styles.css"/></head>
+<body>
+<header class="app">
+  <a href="../login/index.html" id="nav-login">Login</a>
+  <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+  <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+  <a href="../admin/index.html" id="nav-admin" class="active">Admin</a>
+</header>
+<div class="container">
+<section class="card">
+  <div class="card__header">Usuários</div>
+  <div class="card__content">
+    <div class="row"><input id="u-busca" placeholder="Buscar usuário"><button class="btn" id="u-btn-buscar">Buscar</button></div>
+    <table class="table"><thead><tr><th>Nome</th><th>Email</th><th>Status</th></tr></thead><tbody id="u-tbody"></tbody></table>
+    <div class="card__footer"><a class="btn ghost" href="./index.html">Voltar</a></div>
+  </div>
+</section>
+</div>
+<script src="../shared/common.js"></script>
+<script>
+const s = Store.get();
+const tbody = document.getElementById('u-tbody');
+function render(term=''){
+  tbody.innerHTML='';
+  s.users.filter(u=>!term || u.nome.toLowerCase().includes(term.toLowerCase())).forEach(u=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${u.nome}</td><td>${u.email}</td><td>${u.status}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+render();
+document.getElementById('u-btn-buscar').addEventListener('click', ()=>{
+  render(document.getElementById('u-busca').value);
+});
+</script>
+</body></html>

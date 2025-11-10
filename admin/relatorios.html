@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Digiteca — Admin Relatórios</title>
+<link rel="stylesheet" href="../shared/common.css"/><link rel="stylesheet" href="./styles.css"/></head>
+<body>
+<header class="app">
+  <a href="../login/index.html" id="nav-login">Login</a>
+  <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+  <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+  <a href="../admin/index.html" id="nav-admin" class="active">Admin</a>
+</header>
+<div class="container">
+<section class="card">
+  <div class="card__header">Relatórios</div>
+  <div class="card__content">
+    <div class="alert ok" id="sum">Resumo</div>
+    <div class="card__footer"><a class="btn ghost" href="./index.html">Voltar</a></div>
+  </div>
+</section>
+</div>
+<script src="../shared/common.js"></script>
+<script>
+const s = Store.get();
+const total = s.livros.length;
+const emprestados = s.livros.filter(l=>l.status==='emprestado').length;
+const atrasos = (s.historico||[]).filter(h=>h.atraso).length;
+document.getElementById('sum').textContent = `Livros: ${total} | Emprestados: ${emprestados} | Atrasos (histórico): ${atrasos}`;
+</script>
+</body></html>

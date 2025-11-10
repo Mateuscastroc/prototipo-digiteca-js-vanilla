@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Digiteca — Admin Livros</title>
+<link rel="stylesheet" href="../shared/common.css"/><link rel="stylesheet" href="./styles.css"/></head>
+<body>
+<header class="app">
+  <a href="../login/index.html" id="nav-login">Login</a>
+  <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+  <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+  <a href="../admin/index.html" id="nav-admin" class="active">Admin</a>
+</header>
+<div class="container">
+<section class="card">
+  <div class="card__header">Livros</div>
+  <div class="card__content">
+    <div class="row">
+      <div><label>Título (100)</label><input id="b-titulo" maxlength="100"></div>
+      <div><label>Autor (20)</label><input id="b-autor" maxlength="20"></div>
+      <div><label>Ano</label><input id="b-ano" type="number" min="1000" max="2100"></div>
+      <div><label>Categoria</label><select id="b-cat"><option>Tecnologia</option><option>Literatura</option><option>História</option></select></div>
+      <div><label>Código (até 5 dígitos)</label><input id="b-cod" pattern="\d{1,5}" placeholder="ex.: 12345"></div>
+      <div style="align-self:end"><button class="btn primary" id="b-salvar">Salvar livro</button></div>
+    </div>
+    <div id="b-msg" class="alert hidden"></div>
+    <table class="table"><thead><tr><th>Código</th><th>Título</th><th>Autor</th><th>Status</th></tr></thead><tbody id="b-tbody"></tbody></table>
+    <div class="card__footer"><a class="btn ghost" href="./index.html">Voltar</a></div>
+  </div>
+</section>
+</div>
+<script src="../shared/common.js"></script>
+<script>
+const s = Store.get();
+function render(){ const tb=document.getElementById('b-tbody'); tb.innerHTML=''; s.livros.forEach(l=>{const tr=document.createElement('tr'); tr.innerHTML=`<td>${l.cod}</td><td>${l.titulo}</td><td>${l.autor}</td><td>${l.status}</td>`; tb.appendChild(tr);});}
+render();
+document.getElementById('b-salvar').addEventListener('click', ()=>{
+  const t=document.getElementById('b-titulo').value.trim();
+  const a=document.getElementById('b-autor').value.trim();
+  const ano=parseInt(document.getElementById('b-ano').value,10);
+  const cat=document.getElementById('b-cat').value;
+  const cod=document.getElementById('b-cod').value.trim();
+  const msg=document.getElementById('b-msg');
+  if(!t||!a||!ano||!cat||!cod){ msg.className='alert danger'; msg.textContent='Preencha todos os campos.'; return; }
+  if(a.length>20){ msg.className='alert danger'; msg.textContent='Autor deve ter até 20 caracteres.'; return; }
+  if(t.length>100){ msg.className='alert danger'; msg.textContent='Título deve ter até 100 caracteres.'; return; }
+  if(!/^\d{1,5}$/.test(cod)){ msg.className='alert danger'; msg.textContent='Código deve ter até 5 dígitos.'; return; }
+  s.livros.push({id:Date.now(), titulo:t, autor:a, ano, cat, cod, status:'disponivel', fila:[]});
+  Store.set(s);
+  msg.className='alert ok'; msg.textContent='Livro cadastrado!';
+  render();
+});
+</script>
+</body></html>

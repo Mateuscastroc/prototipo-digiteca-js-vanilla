@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digiteca — Empréstimo</title>
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app">
+    <a href="../login/index.html" id="nav-login">Login</a>
+    <a href="../catalogo/index.html" id="nav-catalogo">Catálogo</a>
+    <a href="../perfil/index.html" id="nav-perfil">Meu Perfil</a>
+    <a href="../admin/index.html" id="nav-admin">Admin</a>
+  </header>
+  <div class="container">
+    
+<section class="card">
+  <div class="card__header">Empréstimo</div>
+  <div class="card__content">
+    <div><label>Usuário</label><input id="emp-usuario" readonly><div class="muted">Limite simultâneo: <span id="emp-limite"></span></div></div>
+    <div><label>Livro</label><input id="emp-livro" readonly></div>
+    <div class="row">
+      <div><label>Data de empréstimo</label><input id="emp-data" readonly></div>
+      <div><label>Devolução prevista</label><input id="emp-prev" readonly></div>
+    </div>
+  </div>
+  <div class="card__footer">
+    <button class="btn primary" id="emp-confirmar">Confirmar</button>
+    <a class="btn ghost" href="../detalhe/index.html">Cancelar</a>
+  </div>
+  <div id="emp-alert" class="alert danger hidden" role="alert">Limite atingido. Empréstimo bloqueado.</div>
+</section>
+
+  </div>
+  <script src="../shared/common.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    setActive('nav-emprestimo');
+  </script>
+</body>
+</html>
